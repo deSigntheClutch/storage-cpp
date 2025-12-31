@@ -1,12 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
-project(RedisPubSub CXX)
-
-set(CMAKE_CXX_STANDARD 17)
-
-# Find dependencies
-find_path(HIREDIS_INCLUDE_DIR hiredis/hiredis.h)
-find_library(HIREDIS_LIB hiredis)
-find_package(Boost REQUIRED COMPONENTS json)
+# Dependencies are inherited from parent CMakeLists.txt
 
 # Publisher executable
 add_executable(publisher publisher.cpp)

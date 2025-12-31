@@ -124,9 +124,9 @@ std::vector<json::object> list_all_students(redisContext* ctx) {
 1. Hset won't dedupes the key-value pairs.
 "Alice"   95 {"id":1001,"name":"Alice","class":"Math","grade":95,"age":16}
 "Alice"   95 {"id":1001,"name":"Alice","grade":95}
-// Store in sorted set with just ID
+2. Store in sorted set with just ID
 redisCommand(ctx, "ZADD pg:student %lld %lld", grade, id);
-// Store full student data in a hash
+and store full student data in a hash
 redisCommand(ctx, "HSET pg:student:%lld data %s", id, jsonStr.c_str());
 ****/
 int main() {
